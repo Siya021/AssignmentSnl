@@ -1,4 +1,6 @@
-﻿namespace Assignment
+﻿using System.Runtime.CompilerServices;
+
+namespace Assignment
 {
     internal class Program
     {
@@ -17,26 +19,10 @@
                 switch (selection)
                 {
                     case "1":
-                        Console.WriteLine("Enter a number to convert to words:");
-                        if (int.TryParse(Console.ReadLine(), out int number))
-                        {
-                            string words = NumberToWords.ConvertToWords(number);
-                            Console.WriteLine($"The number in words is: {words}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Invalid input. Please enter a valid number.");
-                        }
+                        NumberToWordsMenu();
                         break;
                     case "2":
-                        List<FootbalTeam> teams = new List<FootbalTeam>();
-
-                        teams.Add(new FootbalTeam("Liverpool", "Arne Slot", 11, LeagueEnum.PremierLeague, 24, 7, 2));
-                        teams.Add(new FootbalTeam("Barcelona", "Coach B", 11, LeagueEnum.LaLiga, 24, 4, 5));
-                        teams.Add(new FootbalTeam("Bayern", "Coach C", 11, LeagueEnum.Bundesliga, 22, 6, 2));
-                        teams.Add(new FootbalTeam("InterMilan", "Coach D", 11, LeagueEnum.SerieA, 21, 8, 4));
-                        teams.Add(new FootbalTeam("PSG", "Coach E", 11, LeagueEnum.Ligue1, 24, 6, 0));
-
+                        FootbalTeamMenu();
                         break;
                     case "3":
                         Console.WriteLine("Returning to Main Menu");
@@ -45,6 +31,49 @@
                         Console.WriteLine("Invalid selection. Please try again.");
                         break;
                 }
+               
+            }
+        }
+
+        private static void NumberToWordsMenu()
+        {
+            Console.WriteLine("--------------------");
+            Console.WriteLine("Enter a number to convert to words:");
+            if (int.TryParse(Console.ReadLine(), out int number))
+            {
+                string words = NumberToWords.ConvertToWords(number);
+                Console.WriteLine($"The number in words is: {words}");
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter a valid number.");
+            }
+
+        }
+
+        private static void FootbalTeamMenu()
+        {
+            List<FootbalTeam> teams = new List<FootbalTeam>
+
+            {
+                new FootbalTeam("Liverpool", "Arne Slot", 11, LeagueEnum.PremierLeague, 24, 7, 2),
+                new FootbalTeam("Barcelona", "Hansi Flick", 11, LeagueEnum.LaLiga, 24, 4, 5),
+                new FootbalTeam("Bayern", "Vincent Company", 11, LeagueEnum.Bundesliga, 22, 6, 2),
+                new FootbalTeam("InterMilan", "Simone Inzaghi", 11, LeagueEnum.SerieA, 21, 8, 4),
+                new FootbalTeam("PSG", "Luis Enrique", 11, LeagueEnum.Ligue1, 24, 6, 0)
+            }
+            ;
+
+            foreach (var team in teams)
+            {
+                team.CalculatePoints();
+ 
+            }
+
+            foreach (var team in teams)
+            {
+                Console.WriteLine(team.DisplayTeamInfo());
+                Console.WriteLine("--------------------------------------------------");
             }
         }
     }
