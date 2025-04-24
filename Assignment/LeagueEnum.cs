@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace Assignment
 {
-    internal class RealWorldObject
+    public enum LeagueEnum
     {
-        
+        PremierLeague,
+        LaLiga,
+        Bundesliga,
+        SerieA,
+        Ligue1,
     }
 }

@@ -29,7 +29,13 @@
                         }
                         break;
                     case "2":
-                        RealWorldObject realWorldObject = new RealWorldObject();
+                        List<FootbalTeam> teams = new List<FootbalTeam>();
+
+                        teams.Add(new FootbalTeam("Liverpool", "Arne Slot", 11, LeagueEnum.PremierLeague, 24, 7, 2));
+                        teams.Add(new FootbalTeam("Barcelona", "Coach B", 11, LeagueEnum.LaLiga, 24, 4, 5));
+                        teams.Add(new FootbalTeam("Bayern", "Coach C", 11, LeagueEnum.Bundesliga, 22, 6, 2));
+                        teams.Add(new FootbalTeam("InterMilan", "Coach D", 11, LeagueEnum.SerieA, 21, 8, 4));
+                        teams.Add(new FootbalTeam("PSG", "Coach E", 11, LeagueEnum.Ligue1, 24, 6, 0));
 
                         break;
                     case "3":
